@@ -1,0 +1,23 @@
+name = "member-portal"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "public"
+
+# --- Bindings ---
+# D1 database (create with:  npx wrangler d1 create member-portal)
+# then paste the returned database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "member-portal"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# R2 bucket for invoice PDFs (create with:  npx wrangler r2 bucket create member-portal-invoices)
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "member-portal-invoices"
+
+# --- Public variables ---
+[vars]
+BRAND_NAME = "Nimbus"
+LOGO_URL = ""
+# SESSION_SECRET is a SECRET, not a var — set it with:
+#   npx wrangler pages secret put SESSION_SECRET

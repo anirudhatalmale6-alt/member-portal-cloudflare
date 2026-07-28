@@ -1,0 +1,5 @@
+node_modules/
+.wrangler/
+seed-ready.sql
+screenshots/
+*.log

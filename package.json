@@ -1,0 +1,18 @@
+{
+  "name": "member-portal-cloudflare",
+  "version": "1.0.0",
+  "description": "Modern branded member portal on Cloudflare Pages + Functions + D1 + R2",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev --d1=DB --r2=BUCKET",
+    "gen-seed": "node gen-seed.js",
+    "db:schema:local": "wrangler d1 execute member-portal --local --file=schema.sql",
+    "db:seed:local": "node gen-seed.js && wrangler d1 execute member-portal --local --file=seed-ready.sql",
+    "db:schema": "wrangler d1 execute member-portal --remote --file=schema.sql",
+    "db:seed": "node gen-seed.js && wrangler d1 execute member-portal --remote --file=seed-ready.sql",
+    "deploy": "wrangler pages deploy public --project-name=member-portal"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
